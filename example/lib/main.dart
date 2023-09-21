@@ -8,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key, @required this.title}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -66,8 +66,8 @@ class _MyHomePageState extends State<MyHomePage> {
     "人间富贵花穿搭"
   ];
 
-  int minLines;
-  int maxLines;
+  late int minLines;
+  late int maxLines;
   bool isExpand = false;
 
   int noArrowMaxLines = 2;
@@ -188,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
   _buildButton(int limit) {
     String showTips;
     if (limit == -1) {
-      limit = math.pow(2, 30);
+      limit = math.pow(2, 30).toInt();
       showTips = "显示全部";
     } else {
       showTips = "行数限制：$limit行";
